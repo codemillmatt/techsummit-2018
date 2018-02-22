@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:AwesomeContacts.Helpers" 
+             x:Class="AwesomeContacts.View.NearbyPage" 
+             xmlns:cells="clr-namespace:AwesomeContacts.Cells"
+             xmlns:effects="clr-namespace:AwesomeContacts.Effects">
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="MyListView"
+                ItemsSource="{Binding Contacts}"
+                  HasUnevenRows="True"
+                CachingStrategy="RecycleElement">
+            <ListView.Effects>
+                <effects:SelectionOnTopEffect/>
+            </ListView.Effects>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <cells:ContactCell/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button 
+                Margin="10"
+                Grid.Row="1" Command="{Binding ForceRefreshCommand}"
+                 Style="{StaticResource ButtonOutline}"
+                 IsEnabled="{Binding IsNotBusy}"
+                 Text="{i18n:Translate FindCloseCDAs}"/>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" Grid.RowSpan="2"/>
+    </Grid>
+</ContentPage>
