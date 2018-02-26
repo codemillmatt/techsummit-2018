@@ -48,7 +48,7 @@ namespace HelloJokes
 			public const int getJoke = 2130968578;
 			
 			// aapt resource value: 0x7f040001
-			public const int joke = 2130968577;
+			public const int jokeText = 2130968577;
 			
 			// aapt resource value: 0x7f040000
 			public const int linearLayout1 = 2130968576;

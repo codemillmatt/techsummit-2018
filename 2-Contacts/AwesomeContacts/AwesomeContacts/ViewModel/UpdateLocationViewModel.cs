@@ -29,10 +29,47 @@ namespace AwesomeContacts.ViewModel
 
         async Task ExecuteUpdateLocationCommand()
         {
+            if (IsBusy)
+                return;
+
+            //1. Check connectivity
+            if (!await CheckConnectivityAsync())
+                return;
+
+            //2. Login
+            var authResult = await AuthenticationService.Login();
+            if (authResult == null)
+                return;
 
             try
             {
+                //3. Update UI
+                IsBusy = true;
 
+                UpdateMessage = AppResources.UpdatingLocation;
+
+                //4. Get current location
+                var position = await Geolocation.GetCurrentPositionAsync();
+
+                if (position == null)
+                    throw new Exception("Unable to get location.");
+
+                CurrentLocation = $"{position.Latitude}, {position.Longitude}";
+
+                //5. Get address from current location
+                UpdateMessage = AppResources.UpdateLocationGeocoding;
+
+                var address = await Geolocation.GetAddressAsync(position);
+
+                if (address != null)
+                    CurrentLocation = $"{address.Locality}, {address.AdminArea ?? string.Empty} {address.CountryCode}";
+
+                UpdateMessage = AppResources.UpdateLocationBackend;
+
+                //6. Update CosmosDB with current location
+                await DataService.UpdateLocationAsync(position, address, authResult.AccessToken);
+
+                UpdateMessage = AppResources.UpdatingLocationUpdated;
             }
             catch (Exception ex)
             {

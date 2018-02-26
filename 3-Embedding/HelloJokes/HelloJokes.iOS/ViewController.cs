@@ -16,11 +16,15 @@ namespace HelloJokes.iOS
         {
             base.ViewDidLoad();
 
-            getJoke.TouchUpInside += async (sender, e) =>
+            getJoke.TouchUpInside += (sender, e) =>
             {
-                var jokeService = new JokeService();
+                //var jokeService = new JokeService();
 
-                jokeText.Text = (await jokeService.GetJoke()).Joke;
+                //jokeText.Text = (await jokeService.GetJoke()).Joke;
+
+                var landingVC = new LandingPage().CreateViewController();
+
+                NavigationController.PushViewController(landingVC, true);
             };
         }
 
