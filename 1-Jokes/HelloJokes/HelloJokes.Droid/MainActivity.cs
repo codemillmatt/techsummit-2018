@@ -23,9 +23,12 @@ namespace HelloJokes
 
             getJoke.Click += async (sender, e) =>
             {
-                var jokeService = new JokeService();
-                var theJoke = await jokeService.GetJoke();
-                jokeText.Text = theJoke.Joke;
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var jokeResponseJson = await client.GetStringAsync("https://icanhazdadjoke.com");
+
+                jokeText.Text = jokeResponseJson;
             };
         }
     }

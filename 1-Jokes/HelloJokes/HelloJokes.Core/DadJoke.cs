@@ -10,6 +10,8 @@ namespace HelloJokes.Core
 {
     public partial class DadJoke
     {
+        public const string JokeUrl = "https://icanhazdadjoke.com";
+
         [JsonProperty("id")]
         public string Id { get; set; }
 
