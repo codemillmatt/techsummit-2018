@@ -1,7 +1,10 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using Android.Content.PM;
+using Android.Views;
 
+using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using HelloJokes.Core;
@@ -15,7 +18,7 @@ using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace HelloJokes
 {
-    [Activity(Label = "HelloJokes", MainLauncher = true)]
+    [Activity(Label = "HelloJokes", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -31,20 +34,34 @@ namespace HelloJokes
             SetSupportActionBar(toolbar);
             SupportActionBar.Title = "Jokes";
 
-            var getJoke = FindViewById<Android.Widget.Button>(Resource.Id.getJoke);
+            FragmentTransaction ft = FragmentManager.BeginTransaction();
+            ft.Replace(Resource.Id.fragment_frame_layout, new MainFragment(), "main");
 
-            getJoke.Click += async (sender, e) =>
-           {
-               var jokeService = new JokeService();
-               var jokeText = FindViewById<TextView>(Resource.Id.joke);
-               jokeText.Text = (await jokeService.GetJoke()).Joke;
+            ft.Commit();
 
-               //var frag = new LandingPage().CreateFragment(this);
-               //var ft = FragmentManager.BeginTransaction();
-               //ft.Replace(Resource.Id.fragment_frame_layout, frag, "main");
-               //ft.Commit();
-           };
         }
     }
+
+    public class MainFragment : Fragment
+    {
+        public override Android.Views.View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        {
+            var view = inflater.Inflate(Resource.Layout.JokeFragment, container, false);
+
+            var getJoke = view.FindViewById<Android.Widget.Button>(Resource.Id.getJoke);
+
+            getJoke.Click += async (sender, e) =>
+            {
+                var jokeText = view.FindViewById<Android.Widget.TextView>(Resource.Id.joke);
+
+                var jokeService = new JokeService();
+                jokeText.Text = (await jokeService.GetJoke()).Joke;
+            };
+
+            return view;
+        }
+
+    }
+
 }
 
