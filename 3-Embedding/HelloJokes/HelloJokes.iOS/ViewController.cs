@@ -15,17 +15,12 @@ namespace HelloJokes.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
 
-            getJoke.TouchUpInside += (sender, e) =>
+            getJoke.TouchUpInside += async (sender, e) =>
             {
-                //var jokeService = new JokeService();
+                var jokeService = new JokeService();
 
-                //jokeText.Text = (await jokeService.GetJoke()).Joke;
-
-                var vc = new LandingPage().CreateViewController();
-
-                this.NavigationController.PushViewController(vc, true);
+                jokeText.Text = (await jokeService.GetJoke()).Joke;
             };
         }
 
