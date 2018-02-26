@@ -33,13 +33,17 @@ namespace HelloJokes
 
             var getJoke = FindViewById<Android.Widget.Button>(Resource.Id.getJoke);
 
-            getJoke.Click +=  (sender, e) =>
-            {
-                var frag = new LandingPage().CreateFragment(this);
-                var ft = FragmentManager.BeginTransaction();
-                ft.Replace(Resource.Id.fragment_frame_layout, frag, "main");
-                ft.Commit();
-            };
+            getJoke.Click += async (sender, e) =>
+           {
+               var jokeService = new JokeService();
+               var jokeText = FindViewById<TextView>(Resource.Id.joke);
+               jokeText.Text = (await jokeService.GetJoke()).Joke;
+
+               //var frag = new LandingPage().CreateFragment(this);
+               //var ft = FragmentManager.BeginTransaction();
+               //ft.Replace(Resource.Id.fragment_frame_layout, frag, "main");
+               //ft.Commit();
+           };
         }
     }
 }
