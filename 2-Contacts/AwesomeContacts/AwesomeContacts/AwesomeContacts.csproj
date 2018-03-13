@@ -78,7 +78,4 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Snippets\" />
-  </ItemGroup>
 </Project>

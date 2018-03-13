@@ -34,8 +34,11 @@ namespace HelloJokes
             SetSupportActionBar(toolbar);
             SupportActionBar.Title = "Jokes";
 
+            var landingFragment = new LandingPage().CreateFragment(this);
+
             FragmentTransaction ft = FragmentManager.BeginTransaction();
-            ft.Replace(Resource.Id.fragment_frame_layout, new MainFragment(), "main");
+            //ft.Replace(Resource.Id.fragment_frame_layout, new MainFragment(), "main");
+            ft.Replace(Resource.Id.fragment_frame_layout, landingFragment, "main");
 
             ft.Commit();
 

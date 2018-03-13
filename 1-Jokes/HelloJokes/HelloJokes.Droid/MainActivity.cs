@@ -19,7 +19,7 @@ namespace HelloJokes
             SetContentView(Resource.Layout.Main);
 
             var getJoke = FindViewById<Button>(Resource.Id.getJoke);
-            var jokeText = FindViewById<TextView>(Resource.Id.joke);
+            var jokeText = FindViewById<TextView>(Resource.Id.jokeText);
 
             getJoke.Click += async (sender, e) =>
             {
