@@ -18,7 +18,7 @@ using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace HelloJokes
 {
-    [Activity(Label = "HelloJokes", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "HelloJokes", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

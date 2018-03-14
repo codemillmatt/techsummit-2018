@@ -8,7 +8,7 @@ using HelloJokes.Core;
 
 namespace HelloJokes
 {
-    [Activity(Label = "HelloJokes", MainLauncher = true)]
+    [Activity(Label = "HelloJokes", MainLauncher = true, Icon = "@mipmap/ic_logo")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
