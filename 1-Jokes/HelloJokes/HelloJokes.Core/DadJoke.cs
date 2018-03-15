@@ -24,27 +24,7 @@ namespace HelloJokes.Core
 
     public partial class DadJoke
     {
-        public static DadJoke FromJson(string json) => JsonConvert.DeserializeObject<DadJoke>(json, HelloJokes.Core.Converter.Settings);
-    }
-
-    public static class Serialize
-    {
-        public static string ToJson(this DadJoke self) => JsonConvert.SerializeObject(self, HelloJokes.Core.Converter.Settings);
-    }
-
-    internal class Converter
-    {
-        public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
-        {
-            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
-            DateParseHandling = DateParseHandling.None,
-            Converters = {
-                new IsoDateTimeConverter()
-                {
-                    DateTimeStyles = DateTimeStyles.AssumeUniversal,
-                },
-            },
-        };
+        public static DadJoke FromJson(string json) => JsonConvert.DeserializeObject<DadJoke>(json);
     }
 }
 
