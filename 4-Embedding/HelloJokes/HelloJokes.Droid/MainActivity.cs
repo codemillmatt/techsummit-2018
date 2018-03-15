@@ -37,6 +37,12 @@ namespace HelloJokes
             FragmentTransaction ft = FragmentManager.BeginTransaction();
             ft.Replace(Resource.Id.fragment_frame_layout, new MainFragment(), "main");
 
+            //8. Create fragment
+            //var landingFragment = new LandingPage().CreateFragment(this);
+
+            //9. Replace fragment
+            //ft.Replace(Resource.Id.fragment_frame_layout, landingFragment, "main");
+
             ft.Commit();
 
         }

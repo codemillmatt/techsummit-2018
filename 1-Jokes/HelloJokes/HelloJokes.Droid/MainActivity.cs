@@ -23,6 +23,7 @@ namespace HelloJokes
 
             getJoke.Click += async (sender, e) =>
             {
+                // 1. - get joke
                 var client = new HttpClient();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
