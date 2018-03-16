@@ -1,18 +1,18 @@
-﻿//2. Check connectivity
+﻿//3. Check connectivity
 if (!await CheckConnectivityAsync())
     return;
 
-//3. Login
+//4. Login
 var authResult = await AuthenticationService.Login();
 if (authResult == null)
     return;
 
-//4. Update UI
+//5. Update UI
 IsBusy = true;
 
 UpdateMessage = AppResources.UpdatingLocation;
 
-//5. Get current location
+//6. Get current location
 var position = await Geolocation.GetCurrentPositionAsync();
 
 if (position == null)
@@ -20,7 +20,7 @@ if (position == null)
 
 CurrentLocation = $"{position.Latitude}, {position.Longitude}";
 
-//6. Get address from current location
+//7. Get address from current location
 UpdateMessage = AppResources.UpdateLocationGeocoding;
 
 var address = await Geolocation.GetAddressAsync(position);
@@ -30,7 +30,7 @@ if (address != null)
 
 UpdateMessage = AppResources.UpdateLocationBackend;
 
-//7. Update CosmosDB with current location
+//8. Update CosmosDB with current location
 await DataService.UpdateLocationAsync(position, address, authResult.AccessToken);
 
 UpdateMessage = AppResources.UpdatingLocationUpdated;
