@@ -21,9 +21,10 @@ namespace HelloJokes
             var getJoke = FindViewById<Button>(Resource.Id.getJoke);
             var jokeText = FindViewById<TextView>(Resource.Id.jokeText);
 
+            //1. Handle event 
             getJoke.Click += async (sender, e) =>
             {
-                // 1. - get joke
+                //2. Get Joke 
                 var client = new HttpClient();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
