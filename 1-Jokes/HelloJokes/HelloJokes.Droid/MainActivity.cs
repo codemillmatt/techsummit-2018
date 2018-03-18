@@ -8,7 +8,7 @@ using HelloJokes.Core;
 
 namespace HelloJokes
 {
-    [Activity(Label = "HelloJokes", MainLauncher = true)]
+    [Activity(Label = "HelloJokes", MainLauncher = true, Icon = "@mipmap/ic_logo")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -21,11 +21,16 @@ namespace HelloJokes
             var getJoke = FindViewById<Button>(Resource.Id.getJoke);
             var jokeText = FindViewById<TextView>(Resource.Id.jokeText);
 
+            //1. Handle event 
             getJoke.Click += async (sender, e) =>
             {
-                var jokeService = new JokeService();
-                var theJoke = await jokeService.GetJoke();
-                jokeText.Text = theJoke.Joke;
+                //2. Get Joke 
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var jokeResponseJson = await client.GetStringAsync("https://icanhazdadjoke.com");
+
+                jokeText.Text = jokeResponseJson;
             };
         }
     }
