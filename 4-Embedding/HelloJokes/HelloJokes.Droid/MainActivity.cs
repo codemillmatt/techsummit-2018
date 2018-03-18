@@ -4,14 +4,8 @@ using Android.OS;
 using Android.Content.PM;
 using Android.Views;
 
-using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using HelloJokes.Core;
 
-
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android.AppCompat;
 using Xamarin.Forms.Platform.Android;
 using Android.Support.V7.App;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
@@ -35,13 +29,12 @@ namespace HelloJokes
             SupportActionBar.Title = "Jokes";
 
             FragmentTransaction ft = FragmentManager.BeginTransaction();
-            ft.Replace(Resource.Id.fragment_frame_layout, new MainFragment(), "main");
 
-            //8. Create fragment
-            //var landingFragment = new LandingPage().CreateFragment(this);
+            // Create fragment
+            var landingFragment = new LandingPage().CreateFragment(this);
 
-            //9. Replace fragment
-            //ft.Replace(Resource.Id.fragment_frame_layout, landingFragment, "main");
+            // Replace fragment
+            ft.Replace(Resource.Id.fragment_frame_layout, landingFragment, "main");
 
             ft.Commit();
 

@@ -24,13 +24,10 @@ namespace HelloJokes
             //1. Handle event 
             getJoke.Click += async (sender, e) =>
             {
-                //2. Get Joke 
-                var client = new HttpClient();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var jokeService = new JokeService();
+                var theJoke = await jokeService.GetJoke();
 
-                var jokeResponseJson = await client.GetStringAsync("https://icanhazdadjoke.com");
-
-                jokeText.Text = jokeResponseJson;
+                jokeText.Text = theJoke.Joke;
             };
         }
     }
