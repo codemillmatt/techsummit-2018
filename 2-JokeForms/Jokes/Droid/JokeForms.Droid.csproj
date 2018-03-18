@@ -115,6 +115,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -130,12 +131,32 @@
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_logo.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_logo.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_logo.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_logo.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_logo.png" />
+    <AndroidResource Include="Resources\drawable\alpha.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\alpha.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\alpha.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\alpha.png" />
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\values-v21\styles.xml" />
+    <AndroidResource Include="Resources\drawable\background_splash.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JokeForms.Core\JokeForms.Core.csproj">
       <Project>{BD5D3007-CBDD-422A-B754-5A657E0F0E55}</Project>
       <Name>JokeForms.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\mipmap-hdpi\" />
+    <Folder Include="Resources\mipmap-mdpi\" />
+    <Folder Include="Resources\mipmap-xhdpi\" />
+    <Folder Include="Resources\mipmap-xxhdpi\" />
+    <Folder Include="Resources\mipmap-xxxhdpi\" />
+    <Folder Include="Resources\values-v21\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Compat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Compat.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Compat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Compat.targets')" />
