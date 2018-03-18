@@ -12,17 +12,16 @@ namespace JokeForms.Core
             InitializeComponent();
 
             // This is used before MVVM
-            //getJoke.Clicked += async (sender, args) =>
-            //{
-            //    var jokeService = new JokeService();
+            getJoke.Clicked += async (sender, args) =>
+            {
+                var jokeService = new JokeService();
 
-            //    var theJoke = await jokeService.GetJoke();
+                var theJoke = await jokeService.GetJoke();
 
-            //    jokeText.Text = theJoke.Joke;
-            //};
+                jokeText.Text = theJoke.Joke;
+            };
 
-            // This is used with MVVM
-            BindingContext = new MainJokeViewModel();
+
         }
     }
 }

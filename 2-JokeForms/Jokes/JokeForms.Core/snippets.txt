@@ -1,0 +1,5 @@
+﻿"{Binding Joke}"
+
+"{Binding GetJokeCommand}"
+
+<Entry Text="{Binding SearchTerm}" />

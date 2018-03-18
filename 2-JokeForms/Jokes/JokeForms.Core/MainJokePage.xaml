@@ -6,9 +6,9 @@
     Title="Dad Jokes">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center">
-            <Label x:Name="jokeText" Text="{Binding Joke}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
-            <Entry Text="{Binding SearchTerm}" />
-            <Button x:Name="getJoke" Text="Get Joke" Command="{Binding GetJokeCommand}" />
+            <Label x:Name="jokeText" Text="No joke yet" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+
+            <Button x:Name="getJoke" Text="Get Joke" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
