@@ -22,10 +22,10 @@ namespace HelloJokes.iOS
 
                 jokeText.Text = (await jokeService.GetJoke()).Joke;
 
-                //9a. View Controller
+                //6. View Controller
                 //var landingController = new LandingPage().CreateViewController();
 
-                //9b. Navigate to it
+                //7. Navigate to it
                 //NavigationController.PushViewController(landingController, true);
             };
         }

@@ -21,7 +21,8 @@ namespace JokeForms.Core
                 jokeText.Text = theJoke.Joke;
             };
 
-
+            //3. Set the binding context
+            //BindingContext = new MainJokeViewModel();
         }
     }
 }

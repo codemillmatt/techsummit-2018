@@ -18,7 +18,7 @@ namespace JokeForms.Core
             var client = new HttpClient();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var jokeResponseJson = await client.GetStringAsync("https://icanhazdadjoke.com");
+            var jokeResponseJson = await client.GetStringAsync("https://dadjoke.azurewebsites.net/api/GetJoke");
 
             return DadJoke.FromJson(jokeResponseJson);
         }

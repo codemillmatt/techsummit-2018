@@ -9,7 +9,7 @@ namespace HelloJokes.Core
 {
     public class JokeService
     {
-        const string jokeUrl = "https://icanhazdadjoke.com";
+        const string jokeUrl = "https://dadjoke.azurewebsites.net/api/GetJoke";
 
         public async Task<DadJoke> GetJoke()
         {
