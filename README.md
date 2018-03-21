@@ -6,7 +6,7 @@ The intention of the repository is to help you through buiding mobile applicatio
 
 ## The Slides
 
-You can view the slides from the talk here.
+You can view the slides from the talk [here](https://www.slideshare.net/MatthewSoucoup/mobile-development-with-xamarin).
 
 ## Xamarin Overview
 
