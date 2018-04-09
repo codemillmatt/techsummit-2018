@@ -13,24 +13,36 @@ namespace TextSentimentFunction
     public static class TextSentiment
     {
         [FunctionName("TextSentiment")]
-        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequest req, TraceWriter log)
+        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]HttpRequest req, TraceWriter log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.Info("Sentiment started");
 
             string sentence = req.Query["sentence"];
 
-            //string requestBody = new StreamReader(req.Body).ReadToEnd();
-            //dynamic data = JsonConvert.DeserializeObject(requestBody);
-            //name = name ?? data?.name;
+            if (string.IsNullOrEmpty(sentence))
+            {
+                log.Error("Sentence is empty");
+
+                return (ActionResult)new BadRequestResult();
+            }
+
+            log.Info($"About to analyze: {sentence}");
 
             var score = await AnalysisService.AnalyzeWords(sentence);
 
-
             return (ActionResult)new OkObjectResult(score);
+        }
 
-            //return sentence != null
-            //    ? (ActionResult)new OkObjectResult($"Hello, {sentence}")
-            //    : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
+        [FunctionName("RandomEmoji")]
+        public static IActionResult GetRandomEmoji([HttpTrigger(AuthorizationLevel.Anonymous,"get")] HttpRequest req, TraceWriter log)
+        {
+            log.Info("Started to get random emojis");
+
+            var randomEmoji = AnalysisService.RandomEmojis();
+
+            log.Info($"Random: {randomEmoji.Emoji}");
+
+            return (ActionResult)new OkObjectResult(randomEmoji);
         }
     }
 }

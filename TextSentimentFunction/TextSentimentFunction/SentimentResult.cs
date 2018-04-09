@@ -22,17 +22,13 @@ namespace TextSentimentFunction
 
         public void ScoreResult()
         {
-            if (SentimentAnalysis < .25)
+            if (SentimentAnalysis < .4)
             {
                 Feeling = "😢";
             }
-            else if (SentimentAnalysis < .5)
+            else if (SentimentAnalysis < .8)
             {
                 Feeling = "😐";
-            }
-            else if (SentimentAnalysis < .75)
-            {
-                Feeling = "😊";
             }
             else
             {

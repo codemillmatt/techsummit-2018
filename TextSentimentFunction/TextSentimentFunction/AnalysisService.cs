@@ -56,5 +56,29 @@ namespace TextSentimentFunction
             return sentimentResult;
         }
 
+        public static EmojiResult RandomEmojis()
+        {
+            List<EmojiResult> source = new List<EmojiResult>
+            {
+                new EmojiResult { Emoji = "😁" },
+                new EmojiResult { Emoji = "👍" },
+                new EmojiResult { Emoji = "😲" },
+                new EmojiResult { Emoji = "🍩" },
+                new EmojiResult { Emoji = "😎" },
+                new EmojiResult { Emoji = "😘" },
+                new EmojiResult { Emoji = "✨" },
+                new EmojiResult { Emoji = "🤢" },
+                new EmojiResult { Emoji = "😰" },
+                new EmojiResult { Emoji = "👽" },
+                new EmojiResult { Emoji = "🍍" },
+                new EmojiResult { Emoji = "🦉" },
+                new EmojiResult { Emoji = "🤓" },
+                new EmojiResult { Emoji = "🤣" }
+            };
+
+            var randomIndex = new Random().Next(0, source.Count);
+
+            return source[randomIndex];
+        }
     }
 }
