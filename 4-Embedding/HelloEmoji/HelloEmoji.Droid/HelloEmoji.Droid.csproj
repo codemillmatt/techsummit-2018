@@ -159,6 +159,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\alpha.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\alpha.png" />
     <AndroidResource Include="Resources\layout\EmojiFragment.axml" />
+    <AndroidResource Include="Resources\drawable\ic_henrybit.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
@@ -176,9 +177,6 @@
     <Folder Include="Resources\drawable-hdpi\" />
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_bitmicrosoft.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HelloEmoji.Core\HelloEmoji.Core.csproj">

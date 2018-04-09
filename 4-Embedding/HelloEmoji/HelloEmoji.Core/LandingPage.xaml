@@ -48,7 +48,7 @@
     <ContentPage.Content>
         <Grid Padding="10" RowSpacing="20">
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="100"/>
                 <RowDefinition Height="150"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
@@ -57,7 +57,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Image Grid.Row="1" Grid.ColumnSpan="2" Source="ic_bitmicrosoft.png" 
+            <Image Grid.Row="1" Grid.ColumnSpan="2" Source="ic_henrybit.png" 
                    HorizontalOptions="FillAndExpand" 
                    VerticalOptions="FillAndExpand"
                    Aspect="AspectFit"/>

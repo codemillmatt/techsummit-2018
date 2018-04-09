@@ -103,7 +103,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />
-    <BundleResource Include="Resources\ic_bitmicrosoft.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Snippets\" />
@@ -123,6 +122,9 @@
       <Project>{F64A50B3-AE37-4944-BF64-A0FD26AC8135}</Project>
       <Name>HelloEmoji.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_henrybit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
